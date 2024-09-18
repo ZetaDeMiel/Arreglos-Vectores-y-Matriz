@@ -1,0 +1,31 @@
+num_alumnos = int(input("Ingresa la cantidad de alumnos: "))
+num_materias = int(input("Ingresa la cantidad de materias: "))
+
+
+alumnos_materias = [[0 for _ in range(num_materias)] for _ in range(num_alumnos)]
+
+alumnos_materias[320][0] = 61  
+alumnos_materias[320][1] = 92
+alumnos_materias[320][2] = 89
+alumnos_materias[320][3] = 71
+alumnos_materias[320][4] = 85
+alumnos_materias[320][5] = 100
+
+def buscar_calificacion(alumno, materia):
+    if 1 <= alumno <= 500 and 1 <= materia <= 6:
+        calificacion = alumnos_materias[alumno - 1][materia - 1]
+        return f"Calificación del alumno {alumno} en la materia {materia}: {calificacion}"
+    else:
+        return "Número de alumno o materia inválido"
+
+
+def mostrar_matriz():
+    for i, alumno in enumerate(alumnos_materias, start=1):
+        print(f"Alumno {i}: {alumno}")
+
+
+mostrar_matriz()
+
+
+resultado = buscar_calificacion(321, 5)
+print(resultado)
